@@ -1,0 +1,24 @@
+<form class="login-form" action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h1 class="h1">Sign In</h1>
+  <label for="" class="label">
+    User login
+    <input type="text" placeholder="Jane_Doe" formControlName="username" class="border" />
+  </label>
+  <label for="" class="label">
+    Password
+    <span class="password-input border">
+      <input [type]="isPasswordVisible() ? 'text' : 'password'" 
+             placeholder="JaneDoe123" 
+             formControlName="password"
+      />
+      <img src="/assets/images/eye-img.png" 
+           alt="eye" 
+           class="eye-img"
+           [class.active]="isPasswordVisible()"
+           (click)="isPasswordVisible.set(!isPasswordVisible())"
+      />
+    </span>
+  </label>
+  <button class="btn btn-login" type="submit">Sign in</button>
+</form>
+<img src="/assets/images/login-img.svg" class="" alt="logo" />
