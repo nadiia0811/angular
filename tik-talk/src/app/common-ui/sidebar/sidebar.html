@@ -1,0 +1,45 @@
+<img src="/assets/images/logo-small.png" alt="logo" class="sidebar-img" />
+<nav>
+  <ul class="main-menu-list">
+    @for (item of menuItems; track item) {
+    <li>
+      <a class="menu-item" [routerLink]="[item.link]">
+        <svg [icon]="item.icon"></svg>
+        <span>{{item.label}}</span>
+      </a>
+    </li>
+    }
+  </ul>
+</nav>
+
+<p class="medium-text">Subscribers</p>
+@for(profile of subscribers$ | async; track profile.id) {
+<app-subscriber-card [profile]="profile"></app-subscriber-card>
+}
+
+<div class="to-subscribers">
+  <a [routerLink]="['/subscribers']" class="to-subscribers-link">
+    All subscribers
+  </a>
+  <img src="/assets/images/arrow.png" />
+</div>
+
+<footer class="sidebar__footer">
+  @if(me()) {
+    @if(me()?.avatarUrl) {
+      <img [src]="me()?.avatarUrl" class="sidebar-img__user" alt="me"/>
+    }  @else {
+      <img src="/assets/images/img1.png" class="sidebar-img__user" alt="me"/>
+    } 
+  } @else {
+    <img src="/assets/images/img1.png" class="sidebar-img__user" alt="me"/>
+  }
+
+  <span class="username">
+    {{me()?.username}}
+  </span>
+  
+  <a [routerLink]="['/settings']" class="settings-btn">
+    <img src="/assets/images/settings.png" alt="settings" class="settings"/>
+  </a> 
+</footer>
