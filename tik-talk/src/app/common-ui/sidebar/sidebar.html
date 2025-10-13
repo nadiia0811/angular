@@ -14,7 +14,7 @@
 
 <p class="medium-text">Subscribers</p>
 @for(profile of subscribers$ | async; track profile.id) {
-<app-subscriber-card [profile]="profile"></app-subscriber-card>
+  <app-subscriber-card [profile]="profile"></app-subscriber-card>
 }
 
 <div class="to-subscribers">
