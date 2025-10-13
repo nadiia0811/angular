@@ -1,0 +1,43 @@
+@if(profile$ | async; as profile) {
+<header class="profile-page__header">
+  <app-profile-header [profile]="profile"></app-profile-header>
+  <a class="btn" [routerLink]="['/settings']">
+    <span>Edit</span>
+    <img src="/assets/images/settings.png" />
+  </a>
+</header>
+
+<main class="profile-page__body">
+  <div></div>
+
+  <div>
+    <h4>Subscribers</h4>
+    <div class="subscribers-wrapper">
+      @for(subscriber of subscribers$ | async; track subscriber.id) {
+        <a class="subscriber-avatar-btn"
+           [routerLink]="['/profile', subscriber.id]"
+        >
+          <img [src] = "subscriber.avatarUrl | imgUrl" alt="avatar" />
+        </a>
+      }
+      <a class="to-subscribers-search"
+         [routerLink]="['/search']"
+      >
+        +
+      </a>
+    </div>
+    <h4 class="mb-16">Skills</h4>
+    <div class="profile-card__tags">
+      @for (skill of this.profile.stack; track skill) {
+          <div class="skill-tag">{{skill}}</div>
+        }
+    </div>
+    <h4 class="mb-16">About me</h4>
+    <p class="text-medium">
+    <!--   Experienced full-stack developer, writes clean code, builds 
+      frontend and backend, efficiently solves complex problems -->
+      {{profile.description}}
+    </p>
+  </div>
+</main>
+}
