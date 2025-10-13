@@ -69,4 +69,3 @@ export class AuthService {
    this.cookieService.set('refreshToken', res.refresh_token);
   }
 }
-

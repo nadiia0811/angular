@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
     <svg width="16" height="16" viewBox="0 0 16 16">
       <use [attr.href]="href"></use>
     </svg>
-  `,
+  `, 
   styles: ['']
 })
 export class SvgIcon {
