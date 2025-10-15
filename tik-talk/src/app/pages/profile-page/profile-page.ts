@@ -5,11 +5,12 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { switchMap, firstValueFrom, map } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { ImgPipe } from '../../helpers/pipes/img-pipe';
+import { PostFeed } from './post-feed/post-feed';
 
 
 @Component({
   selector: 'app-profile-page',
-  imports: [ProfileHeader, AsyncPipe, RouterLink, ImgPipe],
+  imports: [ProfileHeader, AsyncPipe, RouterLink, ImgPipe, PostFeed],
   templateUrl: './profile-page.html',
   styleUrl: './profile-page.scss'
 })
