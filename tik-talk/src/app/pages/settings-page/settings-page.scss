@@ -1,0 +1,25 @@
+:host {
+  display: grid;
+  gap: 48px;
+  grid-template-columns: 322px 1fr;
+  padding: 24px;
+}
+.profile-form {
+  padding: 32px;
+  border: 1px solid var(--light-color);
+  background: rgba(0, 0, 0, 0.4);
+  gap: 20px; 
+}
+.two-columns {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+label {
+  display: block;
+  margin-bottom: 25px;
+}
+.tt-textarea {
+  height: 84px;
+}
