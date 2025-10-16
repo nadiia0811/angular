@@ -31,4 +31,8 @@ export class ProfileService {
   getAccount(id: string) {
     return this.http.get<Profile>(`${this.baseUrl}/account/${id}`);
   }
+
+  patchProfile(profile: Partial<Profile>) {
+    return this.http.patch<Profile>(`${this.baseUrl}/account/me`, profile);
+  }
 }
