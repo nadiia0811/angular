@@ -22,13 +22,7 @@ export class ProfilePage {
   profileService = inject(ProfileService);
   route = inject(ActivatedRoute);
   me$ = this.profileService.me; 
-  profile = {
-    stack: [
-      "HTML", "CSS", "React", "Docker", "AWS", "Nest",
-      "TypeScript", "Angular", "RxJS"
-    ]
-  }
-
+ 
   profile$ = this.route.params
     .pipe(
       switchMap(({id}) => {
@@ -39,9 +33,14 @@ export class ProfilePage {
         return this.profileService.getAccount(id);
       })
     );
+
+    stack$ = this.profile$.pipe(
+      map(data => data.stack)
+    )
     
     subscribers$ = this.profileService.getSubscribersShortlist()
      .pipe(
        map(data => data.items)
-     );  
+     );
+     
 }

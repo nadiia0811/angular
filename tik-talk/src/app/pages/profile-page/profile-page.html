@@ -28,14 +28,13 @@
     </div>
     <h4 class="mb-16">Skills</h4>
     <div class="profile-card__tags">
-      @for (skill of this.profile.stack; track skill) {
+      @for (skill of stack$ | async; track skill) {
           <div class="skill-tag">{{skill}}</div>
-        }
+      } 
+      
     </div>
     <h4 class="mb-16">About me</h4>
     <p class="text-medium">
-    <!--   Experienced full-stack developer, writes clean code, builds 
-      frontend and backend, efficiently solves complex problems -->
       {{profile.description}}
     </p>
   </div>
