@@ -1,14 +1,18 @@
 <img [src]="preview()" alt="avatar" class="avatar-img">
-<div class="dropzone" 
+<div appDnd
+     class="dropzone" 
      tabindex="0" 
      role="button"
-     (keyup.enter)="onKeyEnter(filedrop)">
+     (keyup.enter)="onKeyEnter(filedrop)"
+     (fileDropped)="onFileDropped($event)"
+     >
   <img src="/assets/images/load.png" alt="download" class="download">
   <input 
     tabindex="-1"
     type="file" 
     #filedrop
     class="avatar-input"
+    [(ngModel)]="avatar"
     accept="image/*"
     (change)="onImageUpload($event)"
   />
