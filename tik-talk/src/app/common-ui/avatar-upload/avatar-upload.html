@@ -1,0 +1,19 @@
+<img [src]="preview()" alt="avatar" class="avatar-img">
+<div class="dropzone" 
+     tabindex="0" 
+     role="button"
+     (keyup.enter)="onKeyEnter(filedrop)">
+  <img src="/assets/images/load.png" alt="download" class="download">
+  <input 
+    tabindex="-1"
+    type="file" 
+    #filedrop
+    class="avatar-input"
+    accept="image/*"
+    (change)="onImageUpload($event)"
+  />
+  <span>
+    Upload an image by clicking <strong>here</strong>
+    or drag and drop a file into this area.
+  </span>
+</div>
