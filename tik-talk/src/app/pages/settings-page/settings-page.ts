@@ -1,18 +1,21 @@
-import { Component, inject, effect } from '@angular/core';
+import { Component, inject, effect, ViewChild } from '@angular/core';
 import { ProfileHeader } from '../../common-ui/profile-header/profile-header';
 import { Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ProfileService } from '../../data/services/profile';
 import { Profile } from '../../data/interfaces/profile.interface';
 import { firstValueFrom } from 'rxjs';
+import  { AvatarUpload } from '../../common-ui/avatar-upload/avatar-upload';
 
 
 @Component({
   selector: 'app-settings-page',
-  imports: [ProfileHeader, ReactiveFormsModule],
+  imports: [ProfileHeader, ReactiveFormsModule, AvatarUpload],
   templateUrl: './settings-page.html',
   styleUrl: './settings-page.scss',
 })
 export class SettingsPage {
+  @ViewChild('avatarUpload') avatarUploader!: AvatarUpload;
+
   constructor() {
     effect(() => {
       const me = this.profileService.me();
@@ -47,6 +50,10 @@ export class SettingsPage {
       return;
     }
 
+    if (this.avatarUploader.avatar) {
+      firstValueFrom(this.profileService.uploadAvatar(this.avatarUploader.avatar));
+    }
+
     const formValue = this.form.value;
 
     const payload: Partial<Profile> = {
@@ -58,8 +65,7 @@ export class SettingsPage {
     };
 
     try {
-      const updatedProfile = await firstValueFrom(this.profileService.patchProfile(payload));
-      console.log('Profile updated:', updatedProfile);
+      await firstValueFrom(this.profileService.patchProfile(payload));
     } catch (err) {
       console.error('Failed to save profile', err);
     } 

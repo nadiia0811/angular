@@ -10,7 +10,7 @@ export const routes: Routes = [
   {
     path: '', component: Layout, children: [
       { path: 'profile/:id', component: ProfilePage },
-      { path: '', component: SearchPage },
+      { path: 'search', component: SearchPage },
       { path: 'settings', component: SettingsPage}
     ],
     canActivate: [canActivateAuth]
