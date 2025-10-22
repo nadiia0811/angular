@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AvatarUpload {
   preview = signal<string>("/assets/images/user.png");
-  avatar = null;
+  avatar: File | null = null;
 
   onKeyEnter(input: HTMLInputElement) {
     input.click();
@@ -36,5 +36,6 @@ export class AvatarUpload {
     }
 
     reader.readAsDataURL(file);
+    this.avatar = file;
   }
 }
