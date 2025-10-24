@@ -54,3 +54,22 @@ body {
   line-height: 20px;
   font-weight: 400;
 }
+.tt-form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  margin-bottom: 5px;
+}
+.tt-form-input {
+  width: 100%;
+  font-size: 14px;
+  line-height: 21px;
+  background-color: transparent;
+  border: 1px solid var(--light-color);
+  border-radius: 4px;
+  color: var(--light-color);
+  padding: 4px;
+}

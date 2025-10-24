@@ -1,7 +1,8 @@
+<app-profile-filters></app-profile-filters>
 <div class="profile-card__wrapper">
-  @for (profile of profiles; track profile.id) {
+ @for (profile of profiles(); track profile.id) {
     @if (profile) {
       <app-profile-card [profile] = "profile"></app-profile-card>
     }
-  }
+  } 
 </div>

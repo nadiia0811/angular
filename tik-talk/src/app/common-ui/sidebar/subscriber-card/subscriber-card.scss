@@ -1,7 +1,7 @@
 :host {
   display: grid;
   grid-template-columns: 32px 1fr;
-  grid-gap: 12px;
+  gap: 12px;
   padding: 8px 0;
   align-items: center;
   margin-bottom: 30px;
@@ -12,8 +12,3 @@
   height: 32px;
   border-radius: 50%;
 }
-
-/* .to-subscribers {
-  margin-top: 20px;
-  
-} */

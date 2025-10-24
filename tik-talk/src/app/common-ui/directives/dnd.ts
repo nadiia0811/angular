@@ -1,17 +1,10 @@
-import { 
-  Directive,
-  HostBinding,
-  HostListener,
-  Output,
-  EventEmitter
- } from '@angular/core';
-
+import { Directive, HostBinding, HostListener, Output, EventEmitter } from '@angular/core';
 
 @Directive({
-  selector: '[appDnd]'
+  selector: '[appDnd]',
 })
 export class Dnd {
-  @Output() fileDropped = new EventEmitter<File>();  //custom event creation
+  @Output() fileDropped = new EventEmitter<File>(); //custom event creation
 
   @HostBinding('class.fileover')
   fileover = false;
