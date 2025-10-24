@@ -1,0 +1,16 @@
+:host {
+ border: 1px solid var(--light-color);
+ padding: 10px;
+}
+.p {
+  margin-bottom: 12px;
+  color: rgb(187, 181, 181);
+}
+label {
+  color: rgb(187, 181, 181);  
+}
+.filter-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
