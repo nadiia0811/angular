@@ -9,6 +9,7 @@ import { SettingsPage } from './pages/settings-page/settings-page';
 export const routes: Routes = [
   {
     path: '', component: Layout, children: [
+      {path: '', redirectTo: 'profile/me', pathMatch: 'full'},
       { path: 'profile/:id', component: ProfilePage },
       { path: 'search', component: SearchPage },
       { path: 'settings', component: SettingsPage}
